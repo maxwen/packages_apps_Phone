@@ -1506,8 +1506,6 @@
          [CHAR LIMIT=40] -->
     <string name="dtmf_tone_enable_title">Dial pad touch tones</string>
 
-    <!-- CYANOGENMOD ADDITIONS START -->
-
     <!-- Mobile network settings screen, setting check box name -->
     <string name="national_roaming">National data roaming</string>
     <!-- Mobile network settings screen, setting summary text when check box is selected -->
