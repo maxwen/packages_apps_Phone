@@ -186,6 +186,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_DTMF_KEY        = "button_dtmf_settings";
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
     private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
+    /* package */ static final String BUTTON_RING_DELAY_KEY = "button_ring_delay_key";
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
     private static final String BUTTON_NOISE_SUPPRESSION_KEY = "button_noise_suppression_key";
 
@@ -300,6 +301,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mButtonHAC;
     private ListPreference mButtonDTMF;
     private ListPreference mButtonTTY;
+    private ListPreference mButtonRingDelay;
     private CheckBoxPreference mButtonNoiseSuppression;
     private ListPreference mButtonSipCallOptions;
     private CheckBoxPreference mMwiNotification;
@@ -525,6 +527,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             return true;
         } else if (preference == mButtonTTY) {
             return true;
+        } else if (preference == mButtonRingDelay) {
+            return true;
         } else if (preference == mButtonNoiseSuppression) {
             int nsp = mButtonNoiseSuppression.isChecked() ? 1 : 0;
             // Update Noise suppression value in Settings database
@@ -641,6 +645,9 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
             }
+        } else if (preference == mButtonRingDelay) {
+            mButtonRingDelay.setValue((String) objValue);
+            mButtonRingDelay.setSummary(mButtonRingDelay.getEntry());
         } else if (preference == mButtonSipCallOptions) {
             handleSipCallOptionsChange(objValue);
         } else if (preference == mFlipAction) {
@@ -1590,6 +1597,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonAutoRetry = (CheckBoxPreference) findPreference(BUTTON_RETRY_KEY);
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
+        mButtonRingDelay = (ListPreference) findPreference(BUTTON_RING_DELAY_KEY);
         mButtonNoiseSuppression = (CheckBoxPreference) findPreference(BUTTON_NOISE_SUPPRESSION_KEY);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         mFlipAction = (ListPreference) findPreference(FLIP_ACTION_KEY);
@@ -1652,6 +1660,15 @@ public class CallFeaturesSetting extends PreferenceActivity
             } else {
                 prefSet.removePreference(mButtonTTY);
                 mButtonTTY = null;
+            }
+        }
+
+        if (mButtonRingDelay != null) {
+            if (getResources().getBoolean(R.bool.ringdelay_enabled)) {
+                mButtonRingDelay.setOnPreferenceChangeListener(this);
+            } else {
+                prefSet.removePreference(mButtonRingDelay);
+                mButtonRingDelay = null;
             }
         }
 
@@ -1881,6 +1898,13 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Phone.TTY_MODE_OFF);
             mButtonTTY.setValue(Integer.toString(settingsTtyMode));
             updatePreferredTtyModeSummary(settingsTtyMode);
+        }
+
+        if (mButtonRingDelay != null) {
+            CharSequence mPrefEntry = mButtonRingDelay.getEntry();
+            if (mPrefEntry != null) {
+                mButtonRingDelay.setSummary(mPrefEntry);
+            }
         }
 
         if (mButtonNoiseSuppression != null) {
