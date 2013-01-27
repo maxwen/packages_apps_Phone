@@ -628,10 +628,4 @@
     <string name="preference_category_ringtone" msgid="9007490591910078324">"Klingelton"</string>
     <string name="perm_change_mobile_network">Mobilfunkstandard wechseln (2G/3G)</string>
     <string name="perm_change_mobile_network_desc">Anwendungen mit dieser Berechtigung können jederzeit zwischen 2G- und 3G-Netz wechseln. 3G ist schneller, verbraucht mehr Batterieladung und kann teurer sein</string>
-
-    <!-- Noise suppression -->
-    <string name="noise_suppression_title">Lärmunterdrückung</string>
-    <string name="noise_suppression_summary">Aktiviere Lärmunterdrückung für Anrufe</string>
-    <!-- End Noise suppression -->
-
 </resources>

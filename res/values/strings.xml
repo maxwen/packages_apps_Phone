@@ -1495,6 +1495,8 @@
          [CHAR LIMIT=40] -->
     <string name="preference_category_ringtone">Ringtone</string>
 
+    <!-- CYANOGENMOD ADDITIONS START -->
+
     <!-- Mobile network settings screen, setting check box name -->
     <string name="national_roaming">National data roaming</string>
     <!-- Mobile network settings screen, setting summary text when check box is selected -->
@@ -1502,10 +1504,7 @@
     <!-- Mobile network settings screen, setting summary text when check box is clear -->
     <string name="national_roaming_disable">Connect to data services when nationally roaming</string>
 
-    <!-- Noise suppression -->
-    <string name="noise_suppression_title">Noise suppression</string>
-    <string name="noise_suppression_summary">Enable noise suppression for calls</string>
-    <!-- End Noise suppression -->
+    <!-- CYANOGENMOD ADDITIONS END -->
 
     <!-- Advanced Settings -->
     <string name="advanced_setting">Advanced Settings</string>
@@ -1519,5 +1518,4 @@
     <string name="vibrate_call_waiting_sum">Vibrate on call waiting</string>
     <string name="perm_change_mobile_network">Change network (2G/3G)</string>
     <string name="perm_change_mobile_network_desc">Application with this permission can, at any time, change between 2G data and 3G data. 3G is faster, consumes more battery, and can also cost you more money.</string>
-
 </resources>
