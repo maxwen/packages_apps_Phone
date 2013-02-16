@@ -644,4 +644,6 @@
     <string name="national_roaming_enable">当全国漫游时允许连接移动数据网络</string>
     <string name="national_roaming_disable">当全国漫游时禁止连接移动数据网络</string>
     <string name="preference_category_ringtone" msgid="5197960752529332721">"铃声和振动"</string>
+    <string name="perm_change_mobile_network">2G／3G移动网络切换</string>
+    <string name="perm_change_mobile_network_desc">获得该权限的应用程序可以在任何时候在2G/3G移动网络之间切换。使用3G网络存取资料的速度会比较快，但是也会相应消耗比较多的电量并消耗您更多金钱。</string>
 </resources>
