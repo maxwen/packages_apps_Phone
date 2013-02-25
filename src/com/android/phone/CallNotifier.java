@@ -1706,12 +1706,17 @@ public class CallNotifier extends Handler
         public void run() {
             log("SignalInfoTonePlayer.run(toneId = " + mToneId + ")...");
 
-            if (mSignalInfoToneGenerator != null) {
-                //First stop any ongoing SignalInfo tone
-                mSignalInfoToneGenerator.stopTone();
+			try {
+            	if (mSignalInfoToneGenerator != null) {
+                	//First stop any ongoing SignalInfo tone
+                	mSignalInfoToneGenerator.stopTone();
 
-                //Start playing the new tone if its a valid tone
-                mSignalInfoToneGenerator.startTone(mToneId);
+                	//Start playing the new tone if its a valid tone
+                	mSignalInfoToneGenerator.startTone(mToneId);
+            	}	
+            } catch(RuntimeException e){
+            	// maxwen: never ever break phone app
+            	Log.w(LOG_TAG, "CallNotifier: Exception caught in SignalInfoTonePlayer::run" + e);
             }
         }
     }
