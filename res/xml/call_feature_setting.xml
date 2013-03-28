@@ -75,6 +75,13 @@
         android:title="@string/vibrate_call_waiting"
         android:persistent="true"
         android:summary="@string/vibrate_call_waiting_sum"/>
+    <ListPreference
+        android:key="button_ring_delay_key"
+        android:title="@string/ring_delay_title"
+        android:summary="@string/ring_delay_summary"
+        android:persistent="true"
+        android:entries="@array/ring_delay_entries"
+        android:entryValues="@array/ring_delay_values"/>
   </PreferenceCategory>
   
   <PreferenceCategory
@@ -176,14 +183,6 @@
         android:persistent="false"
         android:entries="@array/tty_mode_entries"
         android:entryValues="@array/tty_mode_values"/>
-
-    <ListPreference
-        android:key="button_ring_delay_key"
-        android:title="@string/ring_delay_title"
-        android:summary="@string/ring_delay_summary"
-        android:persistent="true"
-        android:entries="@array/ring_delay_entries"
-        android:entryValues="@array/ring_delay_values"/>
 
      <CheckBoxPreference
         android:key="button_hac_key"
