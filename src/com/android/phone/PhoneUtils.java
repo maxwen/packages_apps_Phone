@@ -440,6 +440,10 @@ public class PhoneUtils {
                     .getString("button_voice_quality_key", "0");
             return Integer.parseInt(conf);
         }
+        static boolean markRejectedCallsAsMissed(Context context) {
+            return PreferenceManager.getDefaultSharedPreferences(context)
+            		.getBoolean("button_rejected_as_missed", false);
+        }
     }
 
     static boolean hangupRingingCall(Call ringing) {
