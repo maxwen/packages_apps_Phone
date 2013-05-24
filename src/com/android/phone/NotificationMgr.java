@@ -566,8 +566,7 @@ public class NotificationMgr implements CallerInfoAsyncQuery.OnQueryCompleteList
                     mMissedCalls.size());
 
             builder.setContentTitle(mContext.getText(R.string.notification_missedCallsTitle))
-                    .setContentText(message)
-                    .setNumber(mMissedCalls.size());
+                    .setContentText(message);
 
             Notification.InboxStyle style = new Notification.InboxStyle(builder);
 
