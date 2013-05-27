@@ -446,6 +446,9 @@ public class PhoneUtils {
             return getPrefs(context)
             		.getBoolean("button_rejected_as_missed", false);
         }
+        static boolean transparentInCallWidget(Context context) {
+            return getPrefs(context).getBoolean("transparent_in_call_widget", false);
+        }
         static boolean isBlacklistEnabled(Context context) {
             return getPrefs(context).getBoolean("button_enable_blacklist", false);
         }

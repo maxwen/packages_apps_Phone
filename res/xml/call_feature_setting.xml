@@ -95,6 +95,12 @@
             android:targetPackage="com.android.phone"
             android:targetClass="com.android.phone.BlacklistSetting" />
     </PreferenceScreen>
+    <CheckBoxPreference
+        android:key="transparent_in_call_widget"
+        android:title="@string/transparent_in_call_widget"
+        android:summary="@string/transparent_in_call_widget_summary"
+        android:persistent="true"
+        android:defaultValue="false" />
   </PreferenceCategory>
   
   <PreferenceCategory
