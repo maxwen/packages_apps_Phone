@@ -135,15 +135,15 @@ public class InCallScreen extends Activity
     // The "short" value is for calls ended by the local user, and the
     // "long" value is for calls ended by the remote caller.
     private static final int CALL_ENDED_SHORT_DELAY =  200;  // msec
-    private static final int CALL_ENDED_LONG_DELAY = 2000;  // msec
-    private static final int CALL_ENDED_EXTRA_LONG_DELAY = 5000;  // msec
+    private static final int CALL_ENDED_LONG_DELAY = 1000;  // msec
+    private static final int CALL_ENDED_EXTRA_LONG_DELAY = 2500;  // msec
 
     // Amount of time that we display the PAUSE alert Dialog showing the
     // post dial string yet to be send out to the n/w
-    private static final int PAUSE_PROMPT_DIALOG_TIMEOUT = 2000;  //msec
+    private static final int PAUSE_PROMPT_DIALOG_TIMEOUT = 1500;  //msec
 
     // Amount of time that we display the provider info if applicable.
-    private static final int PROVIDER_INFO_TIMEOUT = 5000;  // msec
+    private static final int PROVIDER_INFO_TIMEOUT = 3000;  // msec
 
     // These are values for the settings of the auto retry mode:
     // 0 = disabled
