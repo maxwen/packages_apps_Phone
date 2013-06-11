@@ -38,6 +38,8 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
+import android.app.ProfileGroup;
+import android.app.ProfileManager;
 
 import java.util.Calendar;
 
@@ -79,7 +81,8 @@ public class Ringer {
     private long mFirstRingStartTime = -1;
     private int mRingerVolumeSetting = -1;
     private int mRingIncreaseInterval;
-
+    private final ProfileManager mProfileManager;
+    
     /**
      * Initialize the singleton Ringer instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -103,6 +106,7 @@ public class Ringer {
         // We don't rely on getSystemService(Context.VIBRATOR_SERVICE) to make sure this
         // vibrator object will be isolated from others.
         mVibrator = new SystemVibrator();
+        mProfileManager = (ProfileManager) context.getSystemService(Context.PROFILE_SERVICE);
     }
 
     /**
@@ -248,6 +252,20 @@ public class Ringer {
     }
 
     boolean shouldVibrate() {
+        ProfileGroup profileGroup = mProfileManager.getActiveProfileGroup(mContext.getPackageName());
+        if (profileGroup != null) {
+            Log.v(LOG_TAG, "shouldVibrate, group: " + profileGroup.getUuid()
+                        + " mode: " + profileGroup.getVibrateMode());
+            switch (profileGroup.getVibrateMode()) {
+                case OVERRIDE :
+                    return true;
+                case SUPPRESS :
+                    return false;
+                case DEFAULT :
+                    // Drop through
+            }
+        }
+
         AudioManager audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         int ringerMode = audioManager.getRingerMode();
         if (CallFeaturesSetting.getVibrateWhenRinging(mContext)) {
