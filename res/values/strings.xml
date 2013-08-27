@@ -1661,4 +1661,8 @@
     <string name="transparent_in_call_widget">Transparent in call screen</string>
     <string name="transparent_in_call_widget_summary">Shows the complete contact picture on incomming calls</string>
 
+	<!-- disable proxi sensor if dialpad is open -->
+    <string name="dialpad_disables_proxi_sensor">Dialpad proximity sensor usage</string>
+    <string name="dialpad_disables_proxi_sensor_summary">Disable proximity sensor if dialpad is shown</string>
+
 </resources>
