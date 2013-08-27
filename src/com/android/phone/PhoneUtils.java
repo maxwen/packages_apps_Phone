@@ -449,6 +449,9 @@ public class PhoneUtils {
         static boolean transparentInCallWidget(Context context) {
             return getPrefs(context).getBoolean("transparent_in_call_widget", false);
         }
+        static boolean dialpadDisablesProxiSensor(Context context) {
+            return getPrefs(context).getBoolean("dialpad_disables_proxi_sensor", true);
+        }
         static boolean isBlacklistEnabled(Context context) {
             return getPrefs(context).getBoolean("button_enable_blacklist", false);
         }

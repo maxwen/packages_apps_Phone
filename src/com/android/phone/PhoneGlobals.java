@@ -1200,10 +1200,12 @@ public class PhoneGlobals extends ContextWrapper
                 // proximity sensor turn off the screen by their hands.
                 boolean dialpadVisible = false;
                 if (mInCallScreen != null) {
-                    dialpadVisible =
-                            mInCallScreen.getUpdatedInCallControlState().dialpadEnabled
-                            && mInCallScreen.getUpdatedInCallControlState().dialpadVisible
-                            && isShowingCallScreen();
+                    if (PhoneUtils.PhoneSettings.dialpadDisablesProxiSensor(this)){
+                        dialpadVisible =
+                                mInCallScreen.getUpdatedInCallControlState().dialpadEnabled
+                                && mInCallScreen.getUpdatedInCallControlState().dialpadVisible
+                                && isShowingCallScreen();
+                    }
                 }
                 screenOnImmediately |= dialpadVisible && horizontal;
 

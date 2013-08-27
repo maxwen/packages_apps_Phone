@@ -101,6 +101,13 @@
         android:summary="@string/transparent_in_call_widget_summary"
         android:persistent="true"
         android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="dialpad_disables_proxi_sensor"
+        android:title="@string/dialpad_disables_proxi_sensor"
+        android:summary="@string/dialpad_disables_proxi_sensor_summary"
+        android:persistent="true"
+        android:defaultValue="true" />
+
   </PreferenceCategory>
   
   <PreferenceCategory
