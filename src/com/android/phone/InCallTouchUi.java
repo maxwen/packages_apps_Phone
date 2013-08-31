@@ -205,6 +205,12 @@ public class InCallTouchUi extends FrameLayout
             mAddBlacklistButton.setOnClickListener(this);
         }
 
+        // Blacklist functionality
+        mAddBlacklistButton = (ImageButton) mInCallControls.findViewById(R.id.addBlacklistButton);
+        if (mAddBlacklistButton != null) {
+            mAddBlacklistButton.setOnClickListener(this);
+        }
+
         // TODO: Back when these buttons had text labels, we changed
         // the label of mSwapButton for CDMA as follows:
         //
@@ -1256,7 +1262,7 @@ public class InCallTouchUi extends FrameLayout
         if (PhoneUtils.isLandscape(this.getContext())) {
             TextView callStateLabel = (TextView) mIncomingCallWidget
                     .getRootView().findViewById(R.id.callStateLabel);
-            if (callStateLabel != null) callStateLabel.setGravity(Gravity.LEFT);
+            if (callStateLabel != null) callStateLabel.setGravity(Gravity.START);
         }
 
         mIncomingCallWidget.setVisibility(View.VISIBLE);

@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -46,6 +47,13 @@ public class Use2GOnlyCheckBoxPreference extends CheckBoxPreference {
         mHandler = new MyHandler();
         mPhone.getPreferredNetworkType(
                 mHandler.obtainMessage(MyHandler.MESSAGE_GET_PREFERRED_NETWORK_TYPE));
+    }
+
+    private int getDefaultNetworkMode() {
+        int mode = SystemProperties.getInt("ro.telephony.default_network",
+                Phone.PREFERRED_NT_MODE);
+        Log.i(LOG_TAG, "getDefaultNetworkMode: mode=" + mode);
+        return mode;
     }
 
     @Override
@@ -87,8 +95,8 @@ public class Use2GOnlyCheckBoxPreference extends CheckBoxPreference {
             if (ar.exception == null) {
                 int type = ((int[])ar.result)[0];
                 if (type != Phone.NT_MODE_GSM_ONLY) {
-                    // Allow only NT_MODE_GSM_ONLY or NT_MODE_WCDMA_PREF
-                    type = Phone.NT_MODE_WCDMA_PREF;
+                    // Back to default
+                    type = getDefaultNetworkMode();
                 }
                 Log.i(LOG_TAG, "get preferred network type="+type);
                 setChecked(type == Phone.NT_MODE_GSM_ONLY);
