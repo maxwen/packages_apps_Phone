@@ -635,6 +635,7 @@
     <string name="preference_category_ringtone" msgid="5197960752529332721">"Рингтон и вибросигнал"</string>
     <string name="mwi_notification_title">Индикатор ожидания </string>
     <string name="mwi_notification_summary">Показывать уведомления голосовой почты индикатора ожидающих сообщений</string>
+    <string name="preferred_network_mode_lte_gsm_summary">Предпочтительная сеть: LTE / GSM/WCDMA</string>
     <string name="preferred_network_mode_lte_cdma_evdo_gsm_wcdma_summary">Предпочтительная сеть: LTE / CMDA / EvDo / GSM/WCDMA</string>
     <string name="throttle_time_frame_subtext">%1$d٪ цикла истекло.Следующий период начнется в течение %2$d days (%3$s)</string>
     <string name="ring_delay_title">Задержка звонка</string>

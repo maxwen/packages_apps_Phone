@@ -1245,26 +1245,9 @@ public class CallNotifier extends Handler
             mCallLogger.logCall(c);
 
             final String number = c.getAddress();
-            final Connection.DisconnectCause cause = c.getDisconnectCause();
             final Phone phone = c.getCall().getPhone();
             final boolean isEmergencyNumber =
                     PhoneNumberUtils.isLocalEmergencyNumber(number, mApplication);
-
-            // Set the "type" to be displayed in the call log (see constants in CallLog.Calls)
-            final int callLogType;
-            if (c.isIncoming()) {
-                if (cause == Connection.DisconnectCause.INCOMING_MISSED) {
-                    callLogType = Calls.MISSED_TYPE;
-                } else if (cause == Connection.DisconnectCause.INCOMING_REJECTED
-                        && PhoneUtils.PhoneSettings.markRejectedCallsAsMissed(mApplication)) {
-                    callLogType = Calls.MISSED_TYPE;
-                } else {
-                    callLogType = Calls.INCOMING_TYPE;
-                }
-            } else {
-                callLogType = Calls.OUTGOING_TYPE;
-            }
-            if (VDBG) log("- callLogType: " + callLogType + ", UserData: " + c.getUserData());
 
             if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
                 if ((isEmergencyNumber)
@@ -1276,6 +1259,7 @@ public class CallNotifier extends Handler
             }
 
             final long date = c.getCreateTime();
+            final Connection.DisconnectCause cause = c.getDisconnectCause();
             final boolean missedCall = c.isIncoming() &&
                     (cause == Connection.DisconnectCause.INCOMING_MISSED);
             if (missedCall) {

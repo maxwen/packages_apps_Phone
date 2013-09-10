@@ -633,6 +633,7 @@
     <string name="preference_category_ringtone" msgid="5197960752529332721">"To i vibració"</string>
     <string name="mwi_notification_title">Indicador de missatge d\'espera</string>
     <string name="mwi_notification_summary">Mostra l\'indicador de missatge d\'espera en avisos de correu de veu</string>
+    <string name="preferred_network_mode_lte_gsm_summary">Mode de xarxa preferit: LTE / GSM/WCDMA</string>
     <string name="preferred_network_mode_lte_cdma_evdo_gsm_wcdma_summary">Mode de xarxa preferit:  LTE / CMDA / EvDo / GSM / WCDMA</string>
     <string name="ring_delay_title">Retard del timbre</string>
     <string name="ring_delay_summary">Selecció del retard del timbre</string>

@@ -378,10 +378,9 @@
     <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferred network mode: CDMA+LTE/EVDO</string>
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_global_summary">Preferred network mode: Global</string>
-    <!-- Mobile network settings, summary for preferred network mode LTE / CMDA / EvDo / GSM/WCDMA [CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: LTE / CMDA / EvDo / GSM/WCDMA</string>
     <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_wcdma_summary">Preferred network mode: LTE / WCDMA</string>
+
 
     <string-array name="preferred_network_mode_choices">
         <item>LTE / WCDMA</item>
